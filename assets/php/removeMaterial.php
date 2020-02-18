@@ -15,11 +15,9 @@ $materialTable = "use material";
 $result = $conn->query($materialTable);
 
 //delete the material 
-$updateData = "DELETE FROM material where MATERIAL_ID='$materialID';";
-if ($conn->query($updateData)==TRUE){
+$deleteData = "DELETE FROM material where MATERIAL_ID='$materialID';";
+if ($conn->query($deleteData)==TRUE){
 	echo "<script type='text/javascript'>
 	alert('Selected material has been removed successfully!');
 	window.location = '/BIT216/manageMaterial.php'; </script>";}
-else{
-	echo "update fail";}
 ?>

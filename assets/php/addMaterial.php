@@ -8,6 +8,7 @@ $materialName = $_POST["materialName"];
 $pointsPerKg = $_POST["pointsPerKg"];
 $description = $_POST["description"];
 
+//connect to database
 $conn = new mysqli("localhost","root","", "greenearth");
 if ($conn->connect_error){
 	die("Connection failure");

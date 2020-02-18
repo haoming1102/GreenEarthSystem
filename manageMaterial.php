@@ -95,7 +95,7 @@
 
 								<label for="pointsperkg" class="col-sm-6 col-lg-4 col-form-label"> Points Per Kg</label>
 								<div class="col-sm-12 col-lg-8">
-									<input type="text" class="form-control" name="pointsPerKg" required>
+									<input type="number" class="form-control" name="pointsPerKg" required>
 									<div class="invalid-feedback">Please enter the points per kg.</div><br>
 								</div>
 
@@ -143,7 +143,7 @@
 			} else {
 			while( $record = mysqli_fetch_assoc($resultset) ) {
 			?>
-				<div class="col-lg-3 col-md-6 mb-4">
+				<div class="col-lg-4 col-md-6 mb-4">
 					<div class="card h-100">
 						<div class="card-img">
 							<?php if($record['MATERIAL_IMAGE'] == null){
@@ -208,7 +208,7 @@
 
 										<label for="pointsperkg" class="col-sm-6 col-lg-4 col-form-label"> Points Per Kg</label>
 										<div class="col-sm-12 col-lg-8">
-											<input type="text" class="form-control" name="pointsPerKg" value="<?php echo $record['POINTSPERKG']; ?>" required>
+											<input type="number" class="form-control" name="pointsPerKg" value="<?php echo $record['POINTSPERKG']; ?>" required>
 											<div class="invalid-feedback">Please enter the points per kg.</div><br>
 										</div>
 
@@ -248,7 +248,7 @@
 										
 										<label for="materialname" class="col-sm-6 col-lg-4 col-form-label"> Material Name</label>
 										<div class="col-sm-12 col-lg-8">
-											<input type="text" class="form-control" name="materialName" value="<?php echo $record['MATERIAL_NAME']; ?>" readonly><br>
+											<input type="number" class="form-control" name="materialName" value="<?php echo $record['MATERIAL_NAME']; ?>" readonly><br>
 										</div>
 
 										<label for="pointsperkg" class="col-sm-6 col-lg-4 col-form-label"> Points Per Kg</label>
