@@ -70,7 +70,7 @@
 			if ($conn->connect_error){
 				die("Connection failure: " . mysqli_connect_error());
 			}
-			
+
 			$mID = $_GET['materialID'];
 
 			//use table
@@ -86,20 +86,20 @@
 
         <!-- Item Row -->
         <div class="row">
-		
+
             <div class="col-md-5">
                 <?php echo '<img src="data:image/jpg;base64,'.base64_encode($record['MATERIAL_IMAGE'] ).'"/ height="200" width="400" class="img-fluid" style="border-radius: 8px;">'; ?>
             </div>
-		
+
             <div class="col-md-7">
 				<br><h3><?php echo $record['POINTSPERKG']; ?> Points Per Kg</h3>
 				<hr>
                 <h3 class="my-3">Description</h3>
-                <p><?php echo $record['DESCRIPTION']; ?></p>	
-				<hr>				
+                <p><?php echo $record['DESCRIPTION']; ?></p>
+				<hr>
             </div>
         </div>
-		
+
 		<br>
 		<br>
         <!-- Collectors -->
@@ -141,7 +141,7 @@
 			{
 			?>
 				<tr>
-				<?php			
+				<?php
 					//use table
 					$userTable = "use user";
 					$collectorID = $record['id'];
@@ -175,7 +175,7 @@
 									<div class="col-sm-7">
 										<input type="date" class="form-control" name="proposedDate" required><br>
 										<div class="invalid-feedback">Please enter your proposed date.</div>
-									</div>	
+									</div>
 
 										<input type="hidden" class="form-control" name="username" value="<?php echo $_SESSION['username']; ?>" readonly><br>
 
@@ -195,7 +195,7 @@
 		</table>
 		</div>
 
-			
+
         <!-- /Collectors -->
 
 	</div>
