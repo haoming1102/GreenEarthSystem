@@ -121,8 +121,8 @@
 			$resultset = mysqli_query($conn, $sql) or die("database error:". mysqli_error($conn));
 		?>
 		<div class="table-responsive">
-		<table class="table table-hover">
-			<thead  align="center">
+		<table class="table table-hover table-bordered">
+			<thead  align="center" class="thead-dark">
 					<tr>
 						<th scope="col">Fullname</th>
 						<th scope="col">Contact Number</th>
