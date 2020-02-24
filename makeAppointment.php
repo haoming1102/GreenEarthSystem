@@ -214,7 +214,7 @@
 			<div class="col-lg-3 col-xs-12 links">
 			  <h4 class="mt-lg-0 mt-sm-3">Services</h4>
 				<ul class="m-0 p-0">
-				  <li>ecycle Material</li>
+				  <li>Recycle Material</li>
 				  <li>Make Appointment</li>
 				  <li>Search Nearby Collectors</li>
 				</ul>
