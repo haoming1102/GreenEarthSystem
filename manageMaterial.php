@@ -44,7 +44,7 @@
 					<a class="nav-link" href=""><b>GreenEarth</b></a>
 				</li>
 				<li class="nav-item pill-2">
-					<a class="nav-link active" href="/Assignment/assets/php/viewResidences.php">Maintain Material</a>
+					<a class="nav-link active" href="manageMaterial.php">Maintain Material</a>
 				</li>
 				<li class="nav-item pill-3">
 					<a class="nav-link" href="#">View Submission History</a>
@@ -148,7 +148,7 @@
 						<div class="card-img">
 							<?php if($record['MATERIAL_IMAGE'] == null){
 									//if material doesn't have picture, display a default pic
-									echo '<img class="card-img-top" src="assets/images/material.jpg" alt="No picture available at this moment" title="">';
+									echo '<img class="card-img-top" src="assets/images/recycle.jpg" alt="No picture available at this moment" title="">';
 								} else {
 									echo '<img src="data:image/jpg;base64,'.base64_encode( $record['MATERIAL_IMAGE'] ).'""/>';
 								}
@@ -176,7 +176,7 @@
 							</table>
 						</div>
 						<div class="card-footer">
-							<input type="submit" class="btn btn-primary" value="Update" data-toggle="modal" data-target="#exampleModal<?php echo $record['MATERIAL_ID'];?>">
+							<input type="submit" class="btn btn-primary" value="Edit" data-toggle="modal" data-target="#exampleModal<?php echo $record['MATERIAL_ID'];?>">
 							<input type="submit" class="btn btn-danger" value="Remove" data-toggle="modal" data-target="#Modal3<?php echo $record['MATERIAL_ID'];?>" style="float:right;">
 						</div>
 					</div>
@@ -248,12 +248,12 @@
 										
 										<label for="materialname" class="col-sm-6 col-lg-4 col-form-label"> Material Name</label>
 										<div class="col-sm-12 col-lg-8">
-											<input type="number" class="form-control" name="materialName" value="<?php echo $record['MATERIAL_NAME']; ?>" readonly><br>
+											<input type="text" class="form-control" name="materialName" value="<?php echo $record['MATERIAL_NAME']; ?>" readonly><br>
 										</div>
 
 										<label for="pointsperkg" class="col-sm-6 col-lg-4 col-form-label"> Points Per Kg</label>
 										<div class="col-sm-12 col-lg-8">
-											<input type="text" class="form-control" name="pointsPerKg" value="<?php echo $record['POINTSPERKG']; ?>" readonly><br>
+											<input type="number" class="form-control" name="pointsPerKg" value="<?php echo $record['POINTSPERKG']; ?>" readonly><br>
 										</div>
 
 
