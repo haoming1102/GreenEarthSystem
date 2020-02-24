@@ -23,7 +23,7 @@
 
     }
     else{
-      echo "Fail haha";
+      echo "Fail";
     }
 
 
