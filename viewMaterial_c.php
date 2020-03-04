@@ -66,7 +66,7 @@ $result = mysqli_query($conn, $sql);
       <br>
 
       <!--Modal for add material-->
-      <form method="POST" class="needs-validation" novalidate>
+      <form>
       <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog">
         <div class="modal-dialog modal-lg" role="document">
           <div class="modal-content">
@@ -166,7 +166,7 @@ $result = mysqli_query($conn, $sql);
     </div>
 
     <?php
-      $sql2 = "SELECT material.MATERIAL_ID, material.MATERIAL_NAME,  material.POINTSPERKG,  material.DESCRIPTION
+      $sql2 = "SELECT material.MATERIAL_ID, material.MATERIAL_NAME,  material.POINTSPERKG,  material.DESCRIPTION,collectormaterial.COLLECTORMATERIAL_ID
                FROM material
                INNER JOIN collectormaterial
                ON material.MATERIAL_ID = collectormaterial.MATERIAL_ID";
@@ -178,21 +178,79 @@ $result = mysqli_query($conn, $sql);
     <table class="table table-borderless table-secondary" id="mydatatable">
       <thead>
         <tr class="thead-dark">
+          <th>MaterialCollector_ID</th>
           <th>Material_ID</th>
           <th>Material_Name</th>
           <th>Point per Kg</th>
           <th>Description</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
         <?php while($row = mysqli_fetch_array($result2)):?>
         <tr>
+          <td><?php echo $row['COLLECTORMATERIAL_ID'];?></td>
           <td><?php echo $row['MATERIAL_ID'];?></td>
           <td><?php echo $row['MATERIAL_NAME'];?></td>
           <td><?php echo $row['POINTSPERKG'];?></td>
           <td><?php echo $row['DESCRIPTION'];?></td>
+          <td align="middle"><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#show<?php echo $row['COLLECTORMATERIAL_ID'];?>">Remove </button></td>
         </tr>
 
+        <form action="removeM_c.php" method ="POST">
+            <div class="modal fade" id="show<?php echo $row['COLLECTORMATERIAL_ID'];?>" tabindex="-1" role="dialog">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Remove Material</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <!-- Display the retrieved data into modal -->
+                  <div class="modal-body">
+                    <div class="row">
+                      <div class="form-group col-md-6">
+                        <b> CollectorMaterial_ID :</b>
+                      </div>
+                      <div class="form-group col-md-6">
+                        <input type="text" readonly="readonly" name="collectormaterialID" value="<?php echo $row['COLLECTORMATERIAL_ID'];?>">
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="form-group col-md-6">
+                        <b> MaterialID :</b>
+                      </div>
+                      <div class="form-group col-md-6">
+                        <input type="text" readonly="readonly" name="materialID" value="<?php echo $row['MATERIAL_ID'];?>">
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="form-group col-md-6">
+                        <b> MaterialName :</b>
+                      </div>
+                      <div class="form-group col-md-6">
+                        <input type="text" readonly="readonly" name="MaterialName" value="<?php echo $row['MATERIAL_NAME'];?>">
+                      </div>
+                    </div>
+
+                      <div class="row">
+                        <div class="form-group col-md-6">
+                          <b> Points Per Kg :</b>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                          <input type="text" readonly="readonly" name="point" value="<?php echo $row['POINTSPERKG'];?>">
+                        </div>
+
+                    </div>
+                  <div class="apply_btn" align="center"><button class="btn btn-outline-danger" type="submit" name="submitApp" data-target="#show<?php echo $row['COLLECTORMATERIAL_ID'];?>"> REMOVE</button></div>
+                </div>
+              </div>
+            </div>
+       </form>
 
       <?php endwhile;?>
       </tbody>
