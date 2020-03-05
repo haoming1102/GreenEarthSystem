@@ -88,7 +88,13 @@
         <div class="row">
 		
             <div class="col-md-5">
-                <?php echo '<img src="data:image/jpg;base64,'.base64_encode($record['MATERIAL_IMAGE'] ).'"/ height="200" width="400" class="img-fluid" style="border-radius: 8px;">'; ?>
+                <?php if($record['MATERIAL_IMAGE'] == null){
+						//if material doesn't have picture, display a default pic
+						echo '<img class="card-img-top" src="assets/images/recycle.jpg" alt="No picture available at this moment" title="">';
+					} else {
+						echo '<img src="data:image/jpg;base64,'.base64_encode( $record['MATERIAL_IMAGE'] ).'""/>';
+					}
+				?>
             </div>
 		
             <div class="col-md-7">
