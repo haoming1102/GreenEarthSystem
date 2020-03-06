@@ -169,7 +169,8 @@ $result = mysqli_query($conn, $sql);
       $sql2 = "SELECT material.MATERIAL_ID, material.MATERIAL_NAME,  material.POINTSPERKG,  material.DESCRIPTION,collectormaterial.COLLECTORMATERIAL_ID
                FROM material
                INNER JOIN collectormaterial
-               ON material.MATERIAL_ID = collectormaterial.MATERIAL_ID";
+               ON material.MATERIAL_ID = collectormaterial.MATERIAL_ID
+               AND collectormaterial.id = $UserID";
       $result2 = mysqli_query($conn, $sql2);
 
 
@@ -178,11 +179,11 @@ $result = mysqli_query($conn, $sql);
     <table class="table table-borderless table-secondary" id="mydatatable">
       <thead>
         <tr class="thead-dark">
-          <th>MaterialCollector_ID</th>
-          <th>Material_ID</th>
-          <th>Material_Name</th>
-          <th>Point per Kg</th>
-          <th>Description</th>
+          <th class="text-center">MaterialCollector_ID</th>
+          <th class="text-center">Material_ID</th>
+          <th class="text-center">Material_Name</th>
+          <th class="text-center">Point(kg)</th>
+          <th class="text-center">Description</th>
           <th></th>
         </tr>
       </thead>

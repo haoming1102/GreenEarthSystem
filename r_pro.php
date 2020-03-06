@@ -35,6 +35,15 @@ $result = mysqli_query($conn, $sql);
 				<li class="nav-item pill-1">
 					<a class="navbar-brand" href="index.php" style="font-family:cursive; color: white;">Green Earth</a>
 				</li>
+        <li class="nav-item pill-2">
+            <a class="nav-link active" href="r_pro.php" style ="color:white">Your Profile</a>
+        </li>
+        <li class="nav-item pill-3">
+            <a class="nav-link" href="materialList.php" style ="color:white"> Recycle Material</a>
+        </li>
+        <li class="nav-item pill-4">
+            <a class="nav-link" href="#" style ="color:white">View Submission History</a>
+        </li>
 			</ul>
       <ul class="navbar-nav mr-auto">
       </ul>

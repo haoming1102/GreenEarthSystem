@@ -1,5 +1,6 @@
 /* Lee Hao Ming B1801011 */
 
+
 .jumbotron{
 	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("manageMaterial.jpg");
 	background-size:cover;
@@ -10,17 +11,17 @@
   padding: 1rem 3rem;
   border-radius: 100px;
   font-size:17px;
-}	
+}
 
 #topbar {
 	background: #fff;
-	padding: 10px 0px; 
+	padding: 10px 0px;
 	font-size: 15px;
 }
 
 #topbar .contact-info a {
 	line-height: 100%;
-	color: #000000; 
+	color: #000000;
 }
 
 #topbar .contact-info a:hover {
@@ -29,7 +30,7 @@
 
 #topbar .contact-info i {
 	color: #625FCC;
-	padding: 5px;		
+	padding: 5px;
 }
 
 #topbar .contact-info .fa-envelope-o {
@@ -44,9 +45,9 @@
 
 #topbar .social-links a {
 	color: #555;
-	margin-right: 10px; 
+	margin-right: 10px;
 	padding-top: 5px;
-	padding-bottom: 5px; 
+	padding-bottom: 5px;
 	padding-right: 18px;
 	display: inline-block;
 	line-height: 100%;
@@ -54,7 +55,7 @@
 }
 
 #topbar .social-links .twitter {
-	border-right: none; 
+	border-right: none;
 }
 
 #topbar .social-links a:hover {
@@ -65,23 +66,23 @@
 }
 
 .navbar {
-	margin-bottom: 0px; 
+	margin-bottom: 0px;
 }
 
 .nav-pills .pill-1 .nav-link:not(.active) {
-	color: rgb(255, 255, 255); 
+	color: rgb(255, 255, 255);
 }
 
 .nav-pills .pill-2 .nav-link:not(.active) {
-	color: rgb(255, 255, 255); 
+	color: rgb(255, 255, 255);
 }
 
 .nav-pills .pill-3 .nav-link:not(.active) {
-	color: rgb(255, 255, 255); 
+	color: rgb(255, 255, 255);
 }
 
 .nav-pills .pill-4 .nav-link:not(.active) {
-	color: rgb(255, 255, 255); 
+	color: rgb(255, 255, 255);
 }
 
 .card-box {
@@ -106,10 +107,10 @@ transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 	margin-top: 20px;
 	margin-bottom: 30px;
 	font-size:20px;}
-	
+
 .form-group {
 	margin-top: 18px;}
-		
+
 .form-groupform-check{
 	margin-top: 5px;
 	margin-bottom: 30px;}
@@ -120,7 +121,7 @@ transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 .footer{
   background: #152F4F;
   color:white;
-  
+
   .links{
     ul {list-style-type: none;}
     li a{
@@ -131,7 +132,7 @@ transition: all 0.3s cubic-bezier(.25,.8,.25,1);
         color:#4180CB;
         }
     }
-  }  
+  }
   .about-company{
     i{font-size: 25px;}
     a{
@@ -139,9 +140,9 @@ transition: all 0.3s cubic-bezier(.25,.8,.25,1);
       transition: color .2s;
       &:hover{color:#4180CB}
     }
-  } 
+  }
   .location{
     i{font-size: 18px;}
   }
-  .copyright p{border-top:1px solid rgba(255,255,255,.1);} 
+  .copyright p{border-top:1px solid rgba(255,255,255,.1);}
 }

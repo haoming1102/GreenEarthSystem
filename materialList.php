@@ -1,3 +1,9 @@
+<?php
+	session_start();
+	$Username = $_SESSION['username'];
+
+ ?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -18,7 +24,7 @@
 </head>
 <body>
 	<!--top section-->
-	<section id="topbar" class="d-none d-lg-block">
+	<!-- <section id="topbar" class="d-none d-lg-block">
 		<div class="container-fluid clearfix">
 			<div class="contact-info float-left">
 				<i class="fa fa-envelope-o"></i> <a href="mailto:contact@example.com">contact@hotmail.com</a>
@@ -30,7 +36,7 @@
 				<a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
 			</div>
 		</div>
-	</section>
+	</section> -->
 
 	<!--navigation-->
 	<nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
@@ -41,10 +47,10 @@
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="nav nav-pills" role="tablist">
 				<li class="nav-item pill-1">
-					<a class="nav-link" href=""><b>GreenEarth</b></a>
+					<a class="nav-link" href="index.php"><b>GreenEarth</b></a>
 				</li>
 				<li class="nav-item pill-2">
-					<a class="nav-link" href="#">Your Profile</a>
+					<a class="nav-link" href="r_pro.php">Your Profile</a>
 				</li>
 				<li class="nav-item pill-3">
 					<a class="nav-link active" href="materialList.php">Recycle Material</a>
@@ -52,14 +58,16 @@
 				<li class="nav-item pill-4">
 					<a class="nav-link" href="#">View Submission History</a>
 				</li>
-				<li class="nav-item pill-5">
-					<a class="nav-link" href="manageMaterial.php?signout='1'"><i class="fa fa-sign-out"></i> Sign Out</a>
-				</li>
 			</ul>
 		</div>
+		<ul class="navbar-nav mr-auto">
+		</ul>
+		<a class="navbar-brand" href="index.php" style="font-family:cursive; color: white;"><i class="fa fa-sign-out"></i>Sign out</a>
+		
 		<form class="form-inline" style="float:right;">
 			<input class="form-control mr-sm-2" id="searchBar" type="text" placeholder="Search for material..." onkeyup="searchFunction()">
 		</form>
+
 	</nav>
 
 	<!-- Page Content-->
@@ -78,7 +86,7 @@
 			</div>
 			<hr>
 			<br>
-	  
+
       <!-- /.col-lg-12 -->
       <div class="col-lg-12">
         <div class="row" id="materialList">
@@ -124,7 +132,7 @@
 								<center><a href=makeAppointment.php?materialID=<?php echo $record['MATERIAL_ID'];?>><button type="button" id="btn1" class="btn btn-info">Recycle</button></a></center>
 							</div>
 					</div>
-				</div>			
+				</div>
           <?php }} ?>
 		</div>
         </div>

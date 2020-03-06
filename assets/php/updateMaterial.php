@@ -17,5 +17,5 @@ if ($conn->query($updateData)==TRUE){
 	alert('Updated successfully!');
 	window.location = '/BIT216/manageMaterial.php'; </script>";}
 else{
-	echo "Something went wrong, update fail.";}
+	echo "update fail";}
 ?>

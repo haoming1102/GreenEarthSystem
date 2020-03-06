@@ -1,3 +1,8 @@
+<?php
+session_start();
+$username = $_SESSION['username'];
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -19,7 +24,7 @@
 </head>
 <body>
 	<!--top section-->
-	<section id="topbar" class="d-none d-lg-block">
+	<!-- <section id="topbar" class="d-none d-lg-block">
 		<div class="container-fluid clearfix">
 			<div class="contact-info float-left">
 				<i class="fa fa-envelope-o"></i> <a href="mailto:contact@example.com">contact@hotmail.com</a>
@@ -31,7 +36,7 @@
 				<a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
 			</div>
 		</div>
-	</section>
+	</section> -->
 
 	<!--navigation-->
 	<nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
@@ -45,7 +50,7 @@
 					<a class="nav-link" href=""><b>GreenEarth</b></a>
 				</li>
 				<li class="nav-item pill-2">
-					<a class="nav-link" href="#">Your Profile</a>
+					<a class="nav-link" href="r_pro.php">Your Profile</a>
 				</li>
 				<li class="nav-item pill-3">
 					<a class="nav-link active" href="materialList.php">Recycle Material</a>
@@ -53,10 +58,10 @@
 				<li class="nav-item pill-4">
 					<a class="nav-link" href="#">View Submission History</a>
 				</li>
-				<li class="nav-item pill-5">
-					<a class="nav-link" href="manageMaterial.php?signout='1'"><i class="fa fa-sign-out"></i> Sign Out</a>
-				</li>
 			</ul>
+			<ul class="navbar-nav mr-auto">
+      </ul>
+      <a class="navbar-brand" href="index.php" style="font-family:cursive; color: white;"><i class="fa fa-sign-out"></i>Sign out</a>
 		</div>
 	</nav>
 
@@ -70,7 +75,7 @@
 			if ($conn->connect_error){
 				die("Connection failure: " . mysqli_connect_error());
 			}
-			
+
 			$mID = $_GET['materialID'];
 
 			//use table
@@ -86,9 +91,9 @@
 
         <!-- Item Row -->
         <div class="row">
-		
+
             <div class="col-md-5">
-                <?php if($record['MATERIAL_IMAGE'] == null){
+							<?php if($record['MATERIAL_IMAGE'] == null){
 						//if material doesn't have picture, display a default pic
 						echo '<img class="card-img-top" src="assets/images/recycle.jpg" alt="No picture available at this moment" title="">';
 					} else {
@@ -96,16 +101,16 @@
 					}
 				?>
             </div>
-		
+
             <div class="col-md-7">
 				<br><h3><?php echo $record['POINTSPERKG']; ?> Points Per Kg</h3>
 				<hr>
                 <h3 class="my-3">Description</h3>
-                <p><?php echo $record['DESCRIPTION']; ?></p>	
-				<hr>				
+                <p><?php echo $record['DESCRIPTION']; ?></p>
+				<hr>
             </div>
         </div>
-		
+
 		<br>
 		<br>
         <!-- Collectors -->
@@ -147,7 +152,7 @@
 			{
 			?>
 				<tr>
-				<?php			
+				<?php
 					//use table
 					$userTable = "use user";
 					$collectorID = $record['id'];
@@ -181,7 +186,7 @@
 									<div class="col-sm-7">
 										<input type="date" class="form-control" name="proposedDate" required><br>
 										<div class="invalid-feedback">Please enter your proposed date.</div>
-									</div>	
+									</div>
 
 										<input type="hidden" class="form-control" name="username" value="<?php echo $_SESSION['username']; ?>" readonly><br>
 
@@ -201,7 +206,7 @@
 		</table>
 		</div>
 
-			
+
         <!-- /Collectors -->
 
 	</div>
