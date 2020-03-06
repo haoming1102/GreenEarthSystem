@@ -29,7 +29,8 @@
 
     }
     else{
-      echo "Fail";
+      echo "<script type='text/javascript'> alert('Sorry, material cannot be removed because some of the Recycler has make appointment on the it'); </script>";
+      echo "<script type='text/javascript'> window.location='viewMaterial_c.php'</script>";
     }
 
 
