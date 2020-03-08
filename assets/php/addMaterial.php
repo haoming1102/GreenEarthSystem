@@ -22,5 +22,7 @@ if ($conn->query($insertData)==TRUE){
 	echo "<script type='text/javascript'>
 	alert('Material has been added successfully!');
 	window.location = '/BIT216/manageMaterial.php'; </script>";
+} else{
+	echo "Error, cannot proceed.";
 }
 ?>
