@@ -176,7 +176,7 @@
 							</table>
 						</div>
 						<div class="card-footer">
-							<input type="submit" class="btn btn-primary" value="Edit" data-toggle="modal" data-target="#exampleModal<?php echo $record['MATERIAL_ID'];?>">
+							<input type="submit" class="btn btn-primary" value="Update" data-toggle="modal" data-target="#exampleModal<?php echo $record['MATERIAL_ID'];?>">
 							<input type="submit" class="btn btn-danger" value="Remove" data-toggle="modal" data-target="#Modal3<?php echo $record['MATERIAL_ID'];?>" style="float:right;">
 						</div>
 					</div>
