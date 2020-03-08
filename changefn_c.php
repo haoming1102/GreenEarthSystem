@@ -24,7 +24,7 @@
     //execute the query
     if($conn->query($sql) == TRUE){
         echo "<script type='text/javascript'> alert('Change fullname successfully'); </script>";
-        echo "<script type='text/javascript'> window.location='r_pro.php'</script>";
+        echo "<script type='text/javascript'> window.location='c_pro.php'</script>";
 
 
     }

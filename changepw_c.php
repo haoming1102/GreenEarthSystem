@@ -26,20 +26,20 @@
       if(password_verify($C_oldpw, $result->fetch_assoc()['password'])){
           $fetch = $conn -> query("UPDATE user SET password = '$new_pw' WHERE id ='$C_id'");
           echo "<script type='text/javascript'> alert('Change password successfully'); </script>";
-          echo "<script type='text/javascript'> window.location='r_pro.php'</script>";
+          echo "<script type='text/javascript'> window.location='c_pro.php'</script>";
       }
       else{
         echo "<script type='text/javascript'> alert('Old Password is incorrect'); </script>";
-        echo "<script type='text/javascript'> window.location='r_pro.php'</script>";
+        echo "<script type='text/javascript'> window.location='c_pro.php'</script>";
       }
     }
     else if (empty($C_oldpw) || empty($C_newpw) || empty($C_conpw)){
       echo "<script type='text/javascript'> alert('Please fill up the form'); </script>";
-      echo "<script type='text/javascript'> window.location='r_pro.php'</script>";
+      echo "<script type='text/javascript'> window.location='c_pro.php'</script>";
     }
     else{
       echo "<script type='text/javascript'> alert('New password and confirm password do not match.'); </script>";
-      echo "<script type='text/javascript'> window.location='r_pro.php'</script>";
+      echo "<script type='text/javascript'> window.location='c_pro.php'</script>";
     }
 
 
