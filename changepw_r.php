@@ -25,7 +25,7 @@
 
       if(password_verify($R_oldpw, $result->fetch_assoc()['password'])){
           $fetch = $conn -> query("UPDATE user SET password = '$new_pw' WHERE id ='$R_id'");
-          echo "<script type='text/javascript'> alert('Change successfully'); </script>";
+          echo "<script type='text/javascript'> alert('Change password successfully'); </script>";
           echo "<script type='text/javascript'> window.location='r_pro.php'</script>";
       }
       else{
@@ -46,7 +46,7 @@
 
 
 
-    
+
 
 
 
