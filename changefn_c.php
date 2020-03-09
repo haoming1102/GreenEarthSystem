@@ -8,7 +8,7 @@
     $conn = new mysqli("localhost", "root", "", "greenearth");
 
     // this is to find income by using id
-    $name = "SELECT * FROM user WHERE id = '$R_ID'";
+    $name = "SELECT * FROM user WHERE id = '$R_id'";
     $result = $conn->query($name);
     $row = $result->fetch_assoc();
 
@@ -22,16 +22,21 @@
     $sql = "UPDATE user SET fullname = '$C_name' WHERE id = '$R_id'";
 
     //execute the query
-    if($conn->query($sql) == TRUE){
-        echo "<script type='text/javascript'> alert('Change fullname successfully'); </script>";
-        echo "<script type='text/javascript'> window.location='c_pro.php'</script>";
-
-
-    }
+    if(empty($C_name)){
+      echo "<script type='text/javascript'> alert('New fullname cannot be empty'); </script>";
+      echo "<script type='text/javascript'> window.location='c_pro.php'</script>";
+      }
     else{
-      echo "Fail";
-    }
+      if($conn->query($sql) == TRUE){
+          echo "<script type='text/javascript'> alert('Change fullname successfully'); </script>";
+          echo "<script type='text/javascript'> window.location='c_pro.php'</script>";
 
+
+        }
+      else{
+        echo "Fail";
+        }
+    }
 
 
 ?>

@@ -10,7 +10,7 @@
     $conn = new mysqli("localhost", "root", "", "greenearth");
 
     // this is to find income by using id
-    $id = "SELECT * FROM user WHERE id = '$R_id'";
+    $id = "SELECT * FROM user WHERE id = '$C_id'";
     $result = $conn->query($id);
     //$row = $result->fetch_assoc();
 
