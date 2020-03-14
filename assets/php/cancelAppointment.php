@@ -11,6 +11,6 @@ $deleteData = "DELETE FROM submission where SUBMISSION_ID='$sID';";
 if ($conn->query($deleteData)==TRUE){
 	echo "<script type='text/javascript'>
 	alert('Appointment has been cancelled.');
-	window.location = '/BIT216/manageMaterial.php'; </script>";
+	window.location = '/BIT216/viewAppointment.php'; </script>";
 }
 ?>
