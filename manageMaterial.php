@@ -177,7 +177,13 @@
 						</div>
 						<div class="card-footer">
 							<input type="submit" class="btn btn-primary" value="Update" data-toggle="modal" data-target="#exampleModal<?php echo $record['MATERIAL_ID'];?>">
-							<input type="submit" class="btn btn-danger" value="Remove" data-toggle="modal" data-target="#Modal3<?php echo $record['MATERIAL_ID'];?>" style="float:right;">
+							<?php
+							$mid = $record['MATERIAL_ID'];
+							$sql2 = "SELECT * FROM collectormaterial WHERE MATERIAL_ID='$mid'";
+							$rst = mysqli_query($conn, $sql2);
+							?>
+							<input type="submit" class="btn btn-danger" value="Remove" data-toggle="modal" data-target="#Modal3<?php echo $record['MATERIAL_ID'];?>" style="float:right;" <?php if(mysqli_num_rows($rst) != 0){ ?> disabled 
+							title="Sorry, material cannot be removed because some collectors have holded it." <?php } ?> >
 						</div>
 					</div>
 				</div>
