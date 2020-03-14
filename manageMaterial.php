@@ -182,8 +182,10 @@
 							$sql2 = "SELECT * FROM collectormaterial WHERE MATERIAL_ID='$mid'";
 							$rst = mysqli_query($conn, $sql2);
 							?>
-							<input type="submit" class="btn btn-danger" value="Remove" data-toggle="modal" data-target="#Modal3<?php echo $record['MATERIAL_ID'];?>" style="float:right;" <?php if(mysqli_num_rows($rst) != 0){ ?> disabled 
-							title="Sorry, material cannot be removed because some collectors have holded it." <?php } ?> >
+							<input type="submit" class="btn btn-danger" value="Remove" data-toggle="modal" data-target="#Modal3<?php echo $record['MATERIAL_ID'];?>" style="float:right;" <?php 
+							//check if the selected material can be removed or not
+							//since some collectors may hold it in their material collection
+							if(mysqli_num_rows($rst) != 0){ ?> disabled title="Sorry, material cannot be removed because some collectors have holded it." <?php } ?> >
 						</div>
 					</div>
 				</div>

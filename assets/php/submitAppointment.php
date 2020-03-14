@@ -15,6 +15,6 @@ values ('$proposedDate', 'Pending', '$username','$cmID','0','0','-');";
 if ($conn->query($insertData)==TRUE){
 	echo "<script type='text/javascript'>
 	alert('Your appointment has been submitted successfully!');
-	window.location = '/BIT216/materialList.php'; </script>";
+	window.location = '/BIT216/viewAppointment.php'; </script>";
 }
 ?>

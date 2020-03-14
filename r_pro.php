@@ -42,9 +42,12 @@ $result = mysqli_query($conn, $sql);
             <a class="nav-link" href="materialList.php" style ="color:white"> Recycle Material</a>
         </li>
         <li class="nav-item pill-4">
-            <a class="nav-link" href="#" style ="color:white">View Submission History</a>
-        </li>
-			</ul>
+					<a class="nav-link" href="viewAppointment.php" style ="color:white">View Appointment</a>
+		</li>
+		<li class="nav-item pill-5">
+			<a class="nav-link" href="#" style ="color:white">Submission History</a>
+		</li>
+	</ul>
       <ul class="navbar-nav mr-auto">
       </ul>
       <a class="navbar-brand" href="index.php" style="font-family:cursive; color: white;"><i class="fa fa-sign-out"></i>Sign out</a>
