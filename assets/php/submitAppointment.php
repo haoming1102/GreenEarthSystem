@@ -11,7 +11,7 @@ if ($conn->connect_error){
 
 //insert the submission data
 $insertData = "insert into submission(PROPOSED_DATE, STATUS, RECYCLER_USERNAME, COLLECTORMATERIAL_ID, WEIGHT_IN_KG, POINTS_AWARDED, ACTUAL_DATE)
-values ('$proposedDate', 'Pending', '$username','$cmID','0','0','-');";
+values ('$proposedDate', 'Proposed', '$username','$cmID','0','0','-');";
 if ($conn->query($insertData)==TRUE){
 	echo "<script type='text/javascript'>
 	alert('Your appointment has been submitted successfully!');
