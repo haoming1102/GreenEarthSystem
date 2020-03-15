@@ -55,7 +55,7 @@
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="nav nav-pills" role="tablist">
 				<li class="nav-item pill-1">
-					<a class="nav-link" href="index.php"><b>GreenEarth</b></a>
+					<a class="navbar-brand" href="index.php" style="font-family:cursive; color: white;">Green Earth</a>
 				</li>
 				<li class="nav-item pill-2">
 					<a class="nav-link" href="r_pro.php">Your Profile</a>
@@ -112,7 +112,7 @@
 							//use table
 							$sub = "use submission";
 							$conn->query($sub);
-							$sql = "SELECT * FROM submission WHERE RECYCLER_USERNAME='$Username' AND STATUS='Pending'";
+							$sql = "SELECT * FROM submission WHERE RECYCLER_USERNAME='$Username' AND STATUS='Proposed'";
 							$result = mysqli_query($conn, $sql);
 
 							//fetch the data into while loop
