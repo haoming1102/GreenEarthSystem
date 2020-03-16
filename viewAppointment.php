@@ -1,7 +1,6 @@
 <?php
 	session_start();
 	$Username = $_SESSION['username'];
-
  ?>
 
 <!doctype html>
@@ -89,6 +88,14 @@
 					<br>
 				</div>
 				<hr>
+				<div class="form-group">
+					<div class="col-lg-12">
+						<?php 
+						if (isset($_SESSION['alert'])) {
+							echo $_SESSION['alert'];
+							unset($_SESSION['alert']);} ?>    
+					</div>
+				</div>
 
 				<div class="container" style="color: #566787;
 					background: #f5f5f5;

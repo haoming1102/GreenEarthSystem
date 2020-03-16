@@ -1,3 +1,6 @@
+<?php
+	session_start();
+ ?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -72,6 +75,14 @@
 		  </p>
 		</div>
 		<hr>
+		<div class="form-group">
+			<div class="col-lg-12">
+				<?php 
+				if (isset($_SESSION['alert'])) {
+					echo $_SESSION['alert'];
+					unset($_SESSION['alert']);} ?>    
+			</div>
+		</div>
 		<br>
 
 		<!--Modal for add material-->
@@ -210,8 +221,7 @@
 
 										<label for="materialname" class="col-sm-6 col-lg-4 col-form-label"> Material Name</label>
 										<div class="col-sm-12 col-lg-8">
-											<input type="text" class="form-control" name="materialName" value="<?php echo $record['MATERIAL_NAME']; ?>" required>
-											<div class="invalid-feedback">Please enter the material name.</div><br>
+											<input type="text" class="form-control" name="materialName" value="<?php echo $record['MATERIAL_NAME']; ?>" readonly><br>
 										</div>
 
 										<label for="pointsperkg" class="col-sm-6 col-lg-4 col-form-label"> Points Per Kg</label>
