@@ -31,7 +31,7 @@ else{
 	if ($conn->query($insertData)==TRUE){
 		$alert = '<div class="alert alert-success alert-dismissible">
 		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-		<strong>Material has been added successfully!</strong></div>';
+		<strong>New material has been added successfully!</strong></div>';
 		$_SESSION['alert'] = $alert;
 		echo "<script type='text/javascript'>
 		window.location = '/BIT216/manageMaterial.php'; </script>";
