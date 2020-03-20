@@ -42,7 +42,10 @@ $result = mysqli_query($conn, $sql);
             <a class="nav-link" href="viewMaterial_c.php" style ="color:white">Collect Material</a>
         </li>
         <li class="nav-item pill-4">
-            <a class="nav-link" href="#" style ="color:white">View Submission History</a>
+            <a class="nav-link" href="recordApp.php" style ="color:white">Record Submission</a>
+        </li>
+        <li class="nav-item pill-5">
+            <a class="nav-link" href="view_c.php" style ="color:white">View Submission History</a>
         </li>
 			</ul>
       <ul class="navbar-nav mr-auto">

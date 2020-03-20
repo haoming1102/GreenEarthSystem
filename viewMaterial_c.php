@@ -40,7 +40,10 @@ $result = mysqli_query($conn, $sql);
             <a class="nav-link active" href="viewMaterial_c.php" style ="color:white">Collect Material</a>
         </li>
         <li class="nav-item pill-4">
-            <a class="nav-link" href="#" style ="color:white">View Submission History</a>
+            <a class="nav-link" href="recordApp.php" style ="color:white">Record Submission</a>
+        </li>
+        <li class="nav-item pill-5">
+            <a class="nav-link" href="view_c.php" style ="color:white">View Submission History</a>
         </li>
 			</ul>
       <ul class="navbar-nav mr-auto">
@@ -63,6 +66,14 @@ $result = mysqli_query($conn, $sql);
       </p>
       </div>
       <hr>
+      <div class="form-group">
+  			<div class="col-lg-12">
+  				<?php
+  				if (isset($_SESSION['alert'])) {
+  					echo $_SESSION['alert'];
+  					unset($_SESSION['alert']);} ?>
+  			</div>
+  		</div>
       <br>
 
       <!--Modal for add material-->
@@ -195,7 +206,16 @@ $result = mysqli_query($conn, $sql);
           <td><?php echo $row['MATERIAL_NAME'];?></td>
           <td><?php echo $row['POINTSPERKG'];?></td>
           <td><?php echo $row['DESCRIPTION'];?></td>
-          <td align="middle"><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#show<?php echo $row['COLLECTORMATERIAL_ID'];?>">Remove </button></td>
+
+          <?php
+            $mate = $row['COLLECTORMATERIAL_ID'];
+            $check = "SELECT * FROM submission WHERE COLLECTORMATERIAL_ID ='$mate'";
+            $ch = mysqli_query($conn, $check);
+           ?>
+
+          <td align="middle"><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#show<?php echo $row['COLLECTORMATERIAL_ID'];?>"
+            <?php if(mysqli_num_rows($ch) != 0){ ?> disabled title = "Sorry, material cannot be removed because some recyclers have make appointment on it" <?php } ?> > Remove </button></td>
+
         </tr>
 
         <form action="removeM_c.php" method ="POST">
@@ -210,14 +230,7 @@ $result = mysqli_query($conn, $sql);
                   </div>
                   <!-- Display the retrieved data into modal -->
                   <div class="modal-body">
-                    <div class="row">
-                      <div class="form-group col-md-6">
-                        <b> CollectorMaterial_ID :</b>
-                      </div>
-                      <div class="form-group col-md-6">
-                        <input type="text" readonly="readonly" name="collectormaterialID" value="<?php echo $row['COLLECTORMATERIAL_ID'];?>">
-                      </div>
-                    </div>
+
 
                     <div class="row">
                       <div class="form-group col-md-6">
@@ -245,8 +258,17 @@ $result = mysqli_query($conn, $sql);
                         <div class="form-group col-md-6">
                           <input type="text" readonly="readonly" name="point" value="<?php echo $row['POINTSPERKG'];?>">
                         </div>
-
                     </div>
+
+                    <div class="row">
+                      <!-- <div class="form-group col-md-6">
+                        <b> CollectorMaterial_ID :</b>
+                      </div> -->
+                      <div class="form-group col-md-6">
+                        <input type="text" readonly="readonly" name="collectormaterialID" value="<?php echo $row['COLLECTORMATERIAL_ID'];?>" hidden>
+                      </div>
+                    </div>
+                    
                   <div class="apply_btn" align="center"><button class="btn btn-outline-danger" type="submit" name="submitApp" data-target="#show<?php echo $row['COLLECTORMATERIAL_ID'];?>"> REMOVE</button></div>
                 </div>
               </div>

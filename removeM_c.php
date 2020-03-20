@@ -23,15 +23,16 @@
 
     //execute the query
     if($conn->query($sql) == TRUE){
-        echo "<script type='text/javascript'> alert('Remove successfully'); </script>";
-        echo "<script type='text/javascript'> window.location='viewMaterial_c.php'</script>";
+      $alert = '<div class="alert alert-success alert-dismissible">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      <strong> Material has been deleted. </strong></div>';
+      $_SESSION['alert'] = $alert;
+      echo "<script type='text/javascript'>
+      window.location = 'viewMaterial_c.php'; </script>";
 
 
     }
-    else{
-      echo "<script type='text/javascript'> alert('Sorry, material cannot be removed because some of the Recycler has make appointment on the it'); </script>";
-      echo "<script type='text/javascript'> window.location='viewMaterial_c.php'</script>";
-    }
+
 
 
 

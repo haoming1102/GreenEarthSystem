@@ -50,7 +50,7 @@
 					<a class="nav-link active" href="manageMaterial.php">Maintain Material</a>
 				</li>
 				<li class="nav-item pill-3">
-					<a class="nav-link" href="#">View Submission History</a>
+					<a class="nav-link" href="viewSub_a.php">View Submission History</a>
 			</ul>
 			<ul class="navbar-nav mr-auto">
       </ul>
@@ -77,10 +77,10 @@
 		<hr>
 		<div class="form-group">
 			<div class="col-lg-12">
-				<?php 
+				<?php
 				if (isset($_SESSION['alert'])) {
 					echo $_SESSION['alert'];
-					unset($_SESSION['alert']);} ?>    
+					unset($_SESSION['alert']);} ?>
 			</div>
 		</div>
 		<br>
@@ -193,7 +193,7 @@
 							$sql2 = "SELECT * FROM collectormaterial WHERE MATERIAL_ID='$mid'";
 							$rst = mysqli_query($conn, $sql2);
 							?>
-							<input type="submit" class="btn btn-danger" value="Remove" data-toggle="modal" data-target="#Modal3<?php echo $record['MATERIAL_ID'];?>" style="float:right;" <?php 
+							<input type="submit" class="btn btn-danger" value="Remove" data-toggle="modal" data-target="#Modal3<?php echo $record['MATERIAL_ID'];?>" style="float:right;" <?php
 							//check if the selected material can be removed or not
 							//since some collectors may hold it in their material collection
 							if(mysqli_num_rows($rst) != 0){ ?> disabled title="Sorry, material cannot be removed because some collectors have held it." <?php } ?> >
