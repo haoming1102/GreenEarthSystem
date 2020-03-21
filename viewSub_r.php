@@ -105,8 +105,8 @@ $UserID = $_SESSION['usrid'];
              ON user.id = collectormaterial.id
              INNER JOIN submission
              ON collectormaterial.COLLECTORMATERIAL_ID = submission.COLLECTORMATERIAL_ID
-             AND submission.RECYCLER_USERNAME = '$name'";
-             //ORDER BY material.MATERIAL_ID
+             AND submission.RECYCLER_USERNAME = '$name'
+             ORDER BY material.MATERIAL_ID";
     $result2 = mysqli_query($conn, $sql2);
 
 

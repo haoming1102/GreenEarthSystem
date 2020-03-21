@@ -98,7 +98,8 @@ $UserID = $_SESSION['usrid'];
              FROM material
              INNER JOIN collectormaterial
              ON material.MATERIAL_ID = collectormaterial.MATERIAL_ID
-             AND collectormaterial.id = $UserID";
+             AND collectormaterial.id = $UserID
+             ORDER BY material.MATERIAL_ID";
     $result2 = mysqli_query($conn, $sql2);
 
 
