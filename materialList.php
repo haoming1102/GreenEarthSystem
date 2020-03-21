@@ -59,14 +59,14 @@
 					<a class="nav-link" href="viewAppointment.php">View Appointment</a>
 				</li>
 				<li class="nav-item pill-5">
-					<a class="nav-link" href="#">Submission History</a>
+					<a class="nav-link" href="viewSub_r.php">View Submission History</a>
 				</li>
 			</ul>
 		</div>
 		<ul class="navbar-nav mr-auto">
 		</ul>
 		<a class="navbar-brand" href="index.php" style="font-family:cursive; color: white;"><i class="fa fa-sign-out"></i>Sign out</a>
-		
+
 		<form class="form-inline" style="float:right;">
 			<input class="form-control mr-sm-2" id="searchBar" type="text" placeholder="Search for material..." onkeyup="searchFunction()">
 		</form>

@@ -26,30 +26,35 @@
 
  <body>
    <!--navigation-->
- 	<nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
+   <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
  		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
  		<span class="navbar-toggler-icon"></span>
  		</button>
 
      <div class="collapse navbar-collapse" id="navbarSupportedContent">
- 			<ul class="nav nav-pills" role="tablist">
+       <ul class="nav nav-pills" role="tablist">
  				<li class="nav-item pill-1">
  					<a class="navbar-brand" href="index.php" style="font-family:cursive; color: white;">Green Earth</a>
  				</li>
- 				<li class="nav-item pill-2">
- 					<a class="nav-link" href="manageMaterial.php">Maintain Material</a>
- 				</li>
- 				<li class="nav-item pill-3">
- 					<a class="nav-link active" href="viewSub_a.php">View Submission History</a>
+         <li class="nav-item pill-2">
+             <a class="nav-link" href="c_pro.php" style ="color:white">Your Profile</a>
+         </li>
+         <li class="nav-item pill-3">
+             <a class="nav-link" href="viewMaterial_c.php" style ="color:white">Collect Material</a>
+         </li>
+         <li class="nav-item pill-4">
+             <a class="nav-link" href="recordApp.php" style ="color:white">Record Submission</a>
+         </li>
+         <li class="nav-item pill-5">
+             <a class="nav-link active" href="viewSub_c.php" style ="color:white">View Submission History</a>
+         </li>
  			</ul>
  			<ul class="navbar-nav mr-auto">
        </ul>
        <a class="navbar-brand" href="index.php" style="font-family:cursive; color: white;"><i class="fa fa-sign-out"></i>Sign out</a>
-
        <form class="form-inline" style="float:right;">
-   			<input class="form-control mr-sm-2" id="searchBar" type="text" placeholder="Search by date..." onkeyup="searchFunction2()">
-   		</form>
-
+        <input class="form-control mr-sm-2" id="searchBar" type="text" placeholder="Search by date..." onkeyup="searchFunction2()">
+      </form>
  		</div>
  	</nav>
 
@@ -65,7 +70,7 @@
           echo "<p style='font-size:20px'>Material Name: $Mat_name </p><br>";
           ?>
           <p class="lead">
-          <a href = "viewSub_a.php"><button class="btn btn-success" id="btn1">Back to Material List</button></a>
+          <a href = "viewSub_c.php"><button class="btn btn-success" id="btn1">Back to Material List</button></a>
           </p>
       </div>
       <hr>
@@ -94,8 +99,8 @@
                 INNER JOIN submission
                 ON submission.COLLECTORMATERIAL_ID = collectormaterial.COLLECTORMATERIAL_ID
                 INNER JOIN user
-                ON user.id = collectormaterial.id";
-                //AND submission.STATUS = 'Proposed'
+                ON user.id = collectormaterial.id
+                AND user.id = '$UserID'";
 
        $result2 = mysqli_query($conn, $sql2);
 
@@ -121,7 +126,6 @@
          <tr class="thead-dark">
            <th class="text-center">SubmissionID</th>
            <th class="text-center">Recycler name</th>
-           <th class="text-center">Collector name</th>
            <th class="text-center"> Weight(kg)</th>
            <th class="text-center">Points Awarded</th>
            <th class="text-center">Status</th>
@@ -134,13 +138,20 @@
          <tr>
            <td align="center"><?php echo $row['SUBMISSION_ID'];?></td>
            <td align="center"><?php echo $row['RECYCLER_USERNAME'];?></td>
-           <td align="center"><?php echo $row['username'];?></td>
            <td align="center"><?php echo $row['WEIGHT_IN_KG'];?></td>
            <td align="center"><?php echo $row['POINTS_AWARDED'];?></td>
            <td align="center"><?php echo $row['STATUS'];?></td>
            <td align="center"><?php echo $row['ACTUAL_DATE'];?></td>
          </tr>
 
+        <!-- material with their collector -->
+        <!-- <?php
+        $sql3 = "SELECT material.MATERIAL_ID, material.MATERIAL_NAME
+                 FROM material
+                 INNER JOIN collectormaterial
+                 ON material.MATERIAL_ID = collectormaterial.MATERIAL_ID
+                 AND collectormaterial.id = '$UserID'";
+        $result3 = mysqli_query($conn, $sql3); ?> -->
 
 
        <?php endwhile;?>
@@ -196,7 +207,7 @@
  		  table = document.getElementById("mydatatable");
  		  tr = table.getElementsByTagName("tr");
  		  for (i = 0; i < tr.length; i++) {
- 			td = tr[i].getElementsByTagName("td")[5];
+ 			td = tr[i].getElementsByTagName("td")[4];
  			if (td) {
  			  txtValue = td.textContent || td.innerText;
  			  if (txtValue.toUpperCase().indexOf(filter) > -1) {
@@ -215,7 +226,7 @@
  		  table = document.getElementById("mydatatable");
  		  tr = table.getElementsByTagName("tr");
  		  for (i = 0; i < tr.length; i++) {
- 			td = tr[i].getElementsByTagName("td")[6];
+ 			td = tr[i].getElementsByTagName("td")[5];
  			if (td) {
  			  txtValue = td.textContent || td.innerText;
  			  if (txtValue.toUpperCase().indexOf(filter) > -1) {

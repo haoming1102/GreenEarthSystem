@@ -66,7 +66,7 @@
 					<a class="nav-link active" href="viewAppointment.php">View Appointment</a>
 				</li>
 				<li class="nav-item pill-5">
-					<a class="nav-link" href="#">Submission History</a>
+					<a class="nav-link" href="viewSub_r.php"> View Submission History</a>
 				</li>
 			</ul>
 		</div>
@@ -90,10 +90,10 @@
 				<hr>
 				<div class="form-group">
 					<div class="col-lg-12">
-						<?php 
+						<?php
 						if (isset($_SESSION['alert'])) {
 							echo $_SESSION['alert'];
-							unset($_SESSION['alert']);} ?>    
+							unset($_SESSION['alert']);} ?>
 					</div>
 				</div>
 
@@ -129,7 +129,7 @@
 							<thead>
 								<tr>
 									<th>#</th>
-									<th>Collector Name</th>						
+									<th>Collector Name</th>
 									<th>Material Name</th>
 									<th>Proposed Date</th>
 									<th>Status</th>
@@ -153,14 +153,14 @@
 										$sql = "SELECT * FROM collectormaterial WHERE COLLECTORMATERIAL_ID='$cmID';";
 										$result2 = mysqli_query($conn, $sql) or die("database error:". mysqli_error($conn));
 										$record2 = mysqli_fetch_assoc($result2);
-										
+
 										$userTable = "use user";
 										$uid = $record2['id'];
 										$conn->query($userTable);
 										$sql = "SELECT * FROM user WHERE id='$uid';";
 										$result3 = mysqli_query($conn, $sql) or die("database error:". mysqli_error($conn));
 										$record3 = mysqli_fetch_assoc($result3);
-										
+
 										$materialTable = "use material";
 										$mid = $record2['MATERIAL_ID'];
 										$conn->query($materialTable);
@@ -170,7 +170,7 @@
 									?>
 									<td><?php echo $record['SUBMISSION_ID']; ?></td>
 									<td><?php echo $record3['fullname']; ?></td>
-									<td><?php echo $record4['MATERIAL_NAME']; ?></td>                        
+									<td><?php echo $record4['MATERIAL_NAME']; ?></td>
 									<td><?php echo $record['PROPOSED_DATE']; ?></td>
 									<td><span class="status text-warning">&bull;</span> <?php echo $record['STATUS']; ?></td>
 									<td>
@@ -203,7 +203,7 @@
 					</div>
 				</div>
 			</div>
-		</div>				
+		</div>
     </div>
 
 

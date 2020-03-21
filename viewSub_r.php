@@ -7,7 +7,10 @@ $UserID = $_SESSION['usrid'];
 // $sql = "SELECT MATERIAL_ID, MATERIAL_NAME, POINTSPERKG, DESCRIPTION FROM material";
 // $result = mysqli_query($conn, $sql);
 
-
+ $sql4 = "SELECT * FROM user WHERE id ='$UserID'";
+ $fname = $conn->query($sql4);
+ $row2 = $fname->fetch_assoc();
+ $name = $row2['username'];
 
  ?>
 
@@ -39,15 +42,22 @@ $UserID = $_SESSION['usrid'];
 		</button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-			<ul class="nav nav-pills" role="tablist">
+      <ul class="nav nav-pills" role="tablist">
 				<li class="nav-item pill-1">
 					<a class="navbar-brand" href="index.php" style="font-family:cursive; color: white;">Green Earth</a>
 				</li>
 				<li class="nav-item pill-2">
-					<a class="nav-link" href="manageMaterial.php">Maintain Material</a>
+					<a class="nav-link" href="r_pro.php">Your Profile</a>
 				</li>
 				<li class="nav-item pill-3">
-					<a class="nav-link active" href="viewSub_a.php">View Submission History</a>
+					<a class="nav-link" href="materialList.php">Recycle Material</a>
+				</li>
+				<li class="nav-item pill-4">
+					<a class="nav-link" href="viewAppointment.php">View Appointment</a>
+				</li>
+				<li class="nav-item pill-5">
+					<a class="nav-link active" href="viewSub_r.php">View Submission History</a>
+				</li>
 			</ul>
 			<ul class="navbar-nav mr-auto">
       </ul>
@@ -87,19 +97,17 @@ $UserID = $_SESSION['usrid'];
     </div>
 
     <?php
-      // $sql2 = "SELECT submission.RECYCLER_USERNAME, material.MATERIAL_NAME, submission.PROPOSED_DATE, submission.STATUS, submission.SUBMISSION_ID, material.POINTSPERKG
-      //          FROM material
-      //          INNER JOIN collectormaterial
-      //          ON material.MATERIAL_ID = collectormaterial.MATERIAL_ID
-      //          AND collectormaterial.id = $UserID
-      //          INNER JOIN submission
-      //          ON submission.COLLECTORMATERIAL_ID = collectormaterial.COLLECTORMATERIAL_ID";
-      //          //AND submission.STATUS = 'Proposed'
-      //
-      // $result2 = mysqli_query($conn, $sql2);
-
-      $sql6 = "SELECT * FROM material";
-      $result6 = mysqli_query($conn, $sql6);
+    $sql2 = "SELECT DISTINCT material.MATERIAL_ID, material.MATERIAL_NAME,  material.POINTSPERKG,  material.DESCRIPTION
+             FROM material
+             INNER JOIN collectormaterial
+             ON material.MATERIAL_ID = collectormaterial.MATERIAL_ID
+             INNER JOIN user
+             ON user.id = collectormaterial.id
+             INNER JOIN submission
+             ON collectormaterial.COLLECTORMATERIAL_ID = submission.COLLECTORMATERIAL_ID
+             AND submission.RECYCLER_USERNAME = '$name'";
+             //ORDER BY material.MATERIAL_ID
+    $result2 = mysqli_query($conn, $sql2);
 
 
     ?>
@@ -118,13 +126,13 @@ $UserID = $_SESSION['usrid'];
         </tr>
       </thead>
       <tbody>
-        <?php while($row = mysqli_fetch_array($result6)):?>
+        <?php while($row = mysqli_fetch_array($result2)):?>
         <tr>
           <td align="center"><?php echo $row['MATERIAL_ID'];?></td>
-          <td align="center"><?php echo $row['MATERIAL_NAME'];?></td>
+          <td ><?php echo $row['MATERIAL_NAME'];?></td>
           <td align="center"><?php echo $row['POINTSPERKG'];?></td>
           <td><?php echo $row['DESCRIPTION'];?></td>
-          <td align="middle"> <a href=showAllSub_a.php?materialID=<?php echo $row['MATERIAL_ID'];?>><button type="button" class="btn btn-primary"> Select </button></a></td>
+          <td align="middle"> <a href=showAllSub_r.php?materialID=<?php echo $row['MATERIAL_ID'];?>><button type="button" class="btn btn-primary"> Select </button></a></td>
         </tr>
 
       <?php endwhile;?>
@@ -132,6 +140,7 @@ $UserID = $_SESSION['usrid'];
       </tbody>
       </form>
     </table>
+
 
 		<br><br>
   </div>

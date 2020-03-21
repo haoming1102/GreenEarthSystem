@@ -59,7 +59,7 @@ $username = $_SESSION['username'];
 					<a class="nav-link" href="viewAppointment.php">View Appointment</a>
 				</li>
 				<li class="nav-item pill-5">
-					<a class="nav-link" href="#">Submission History</a>
+					<a class="nav-link" href="viewSub_r.php">View Submission History</a>
 				</li>
 			</ul>
 			<ul class="navbar-nav mr-auto">
