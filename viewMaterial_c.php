@@ -91,9 +91,9 @@ $result = mysqli_query($conn, $sql);
                 <table class="table table-borderless table-secondary" id="mydatatable">
           				<thead>
           					<tr class="thead-dark">
-          						<th>MATERIAL_ID</th>
-          						<th>MATERIAL_NAME</th>
-          						<th>POINTSPERKG</th>
+          						<th class="text-center">MATERIAL_ID</th>
+          						<th class="text-center">MATERIAL_NAME</th>
+          						<th class="text-center">POINTSPERKG</th>
                       <th> </th>
 
           					</tr>
@@ -101,9 +101,9 @@ $result = mysqli_query($conn, $sql);
           				<tbody>
           					<?php while($row = mysqli_fetch_array($result)):?>
           					<tr>
-          						<td><?php echo $row['MATERIAL_ID'];?></td>
-          						<td><?php echo $row['MATERIAL_NAME'];?></td>
-          						<td><?php echo $row['POINTSPERKG'];?></td>
+          						<td align="center"><?php echo $row['MATERIAL_ID'];?></td>
+          						<td ><?php echo $row['MATERIAL_NAME'];?></td>
+          						<td align="center"><?php echo $row['POINTSPERKG'];?></td>
                       <td align="middle"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#pop<?php echo $row['MATERIAL_ID'];?>"> Add </button></td>
           					</tr>
 
@@ -201,10 +201,10 @@ $result = mysqli_query($conn, $sql);
       <tbody>
         <?php while($row = mysqli_fetch_array($result2)):?>
         <tr>
-          <td><?php echo $row['COLLECTORMATERIAL_ID'];?></td>
-          <td><?php echo $row['MATERIAL_ID'];?></td>
+          <td align="center"><?php echo $row['COLLECTORMATERIAL_ID'];?></td>
+          <td align="center"><?php echo $row['MATERIAL_ID'];?></td>
           <td><?php echo $row['MATERIAL_NAME'];?></td>
-          <td><?php echo $row['POINTSPERKG'];?></td>
+          <td align="center"><?php echo $row['POINTSPERKG'];?></td>
           <td><?php echo $row['DESCRIPTION'];?></td>
 
           <?php

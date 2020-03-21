@@ -16,8 +16,15 @@
             VALUES('$userId', '$MaterialID')";
 
     //check the material exist or not
-    $mat = "SELECT * FROM collectormaterial WHERE MATERIAL_ID = '$MaterialID'";
-    $result2 = mysqli_query($conn,$mat);
+    // $mat = "SELECT * FROM collectormaterial WHERE MATERIAL_ID = '$MaterialID'";
+    // $result2 = mysqli_query($conn,$mat);
+
+    $mat = "SELECT material.MATERIAL_ID, material.MATERIAL_NAME,  material.POINTSPERKG,  material.DESCRIPTION,collectormaterial.COLLECTORMATERIAL_ID
+             FROM material WHERE MATERIAL_ID = '$MaterialID
+             INNER JOIN collectormaterial
+             ON material.MATERIAL_ID = collectormaterial.MATERIAL_ID
+             AND collectormaterial.id = $UserID";
+    $result2 = mysqli_query($conn, $sql2);
 
     if(mysqli_num_rows($result2) != 0)
     {

@@ -77,6 +77,7 @@ $UserID = $_SESSION['usrid'];
       </div>
       <hr>
     </div>
+    </div>
 
 
     <!-- search bar -->
@@ -136,7 +137,7 @@ $UserID = $_SESSION['usrid'];
 
 
 		<br><br>
-  </div>
+
   </div>
 
 

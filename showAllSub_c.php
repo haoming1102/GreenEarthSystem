@@ -9,6 +9,22 @@
    $link = $conn->query($sql6);
    $row3 = $link->fetch_assoc();
    $Mat_name = $row3['MATERIAL_NAME'];
+
+   $sql3 = "SELECT  SUM(submission.WEIGHT_IN_KG) AS sum_w, SUM(submission.POINTS_AWARDED) AS sum_p
+            FROM material
+            INNER JOIN collectormaterial
+            ON material.MATERIAL_ID = collectormaterial.MATERIAL_ID
+            AND material.MATERIAL_ID = '$matID'
+            INNER JOIN submission
+            ON submission.COLLECTORMATERIAL_ID = collectormaterial.COLLECTORMATERIAL_ID
+            INNER JOIN user
+            ON user.id = collectormaterial.id
+            AND user.id = '$UserID'";
+
+   $result3 = mysqli_query($conn, $sql3);
+   $row4 = mysqli_fetch_assoc($result3);
+   $sum_weight = $row4['sum_w'];
+   $sum_points = $row4['sum_p'];
   ?>
 
 
@@ -104,6 +120,7 @@
 
        $result2 = mysqli_query($conn, $sql2);
 
+
      ?>
 
      <?php
@@ -116,10 +133,19 @@
       ?>
       <br>
 
-      <!-- search bar -->
-      <input type="text" class="form-control" id="filter" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="Search by Status" onkeyup="searchFunction()">
+      <div class="row">
+        <div class="col-lg-8">
+          <!-- search bar -->
+          <input type="text" class="form-control" id="filter" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="Search by Status" onkeyup="searchFunction()">
+        </div>
+        <div class="col-lg-4">
+          <?php echo "<h5> Total weight: $sum_weight | Total points: $sum_points </h5>"; ?>
+        </div>
+      </div>
+
       <br>
      <!--Mateiral list-->
+
      <table class="table table-borderless table-secondary" id="mydatatable">
        <form class="form-control">
        <thead>
@@ -143,15 +169,6 @@
            <td align="center"><?php echo $row['STATUS'];?></td>
            <td align="center"><?php echo $row['ACTUAL_DATE'];?></td>
          </tr>
-
-        <!-- material with their collector -->
-        <!-- <?php
-        $sql3 = "SELECT material.MATERIAL_ID, material.MATERIAL_NAME
-                 FROM material
-                 INNER JOIN collectormaterial
-                 ON material.MATERIAL_ID = collectormaterial.MATERIAL_ID
-                 AND collectormaterial.id = '$UserID'";
-        $result3 = mysqli_query($conn, $sql3); ?> -->
 
 
        <?php endwhile;?>
