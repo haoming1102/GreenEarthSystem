@@ -1,7 +1,7 @@
 <?php
     session_start();
     $MaterialID = $_POST["materialID"];
-    $userId = $_SESSION['usrid'];
+    $UserID = $_SESSION['usrid'];
 
 
     //connect to database
@@ -13,18 +13,16 @@
 
 
     $sql = "INSERT INTO collectormaterial (id, MATERIAL_ID)
-            VALUES('$userId', '$MaterialID')";
+            VALUES('$UserID', '$MaterialID')";
 
-    //check the material exist or not
-    // $mat = "SELECT * FROM collectormaterial WHERE MATERIAL_ID = '$MaterialID'";
-    // $result2 = mysqli_query($conn,$mat);
 
     $mat = "SELECT material.MATERIAL_ID, material.MATERIAL_NAME,  material.POINTSPERKG,  material.DESCRIPTION,collectormaterial.COLLECTORMATERIAL_ID
-             FROM material WHERE MATERIAL_ID = '$MaterialID
+             FROM material
              INNER JOIN collectormaterial
              ON material.MATERIAL_ID = collectormaterial.MATERIAL_ID
-             AND collectormaterial.id = $UserID";
-    $result2 = mysqli_query($conn, $sql2);
+             AND material.MATERIAL_ID = '$MaterialID'
+             AND collectormaterial.id = '$UserID'";
+    $result2 = mysqli_query($conn, $mat);
 
     if(mysqli_num_rows($result2) != 0)
     {
@@ -43,6 +41,7 @@
         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
         <strong> New material has been added successfully in list. </strong></div>';
         $_SESSION['alert'] = $alert;
+
         echo "<script type='text/javascript'>
         window.location = 'viewMaterial_c.php'; </script>";
 
@@ -53,6 +52,7 @@
       }
 
   }
+
 
 
 

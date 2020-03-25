@@ -77,7 +77,7 @@ $result = mysqli_query($conn, $sql);
       <br>
 
       <!--Modal for add material-->
-      <form>
+      
       <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog">
         <div class="modal-dialog modal-lg" role="document">
           <div class="modal-content">
@@ -113,7 +113,7 @@ $result = mysqli_query($conn, $sql);
                 					<div class="modal-dialog modal-dialog-centered" role="document">
                 						<div class="modal-content">
                 							<div class="modal-header">
-                								<h5 class="modal-title" id="exampleModalLongTitle">Make Appointment</h5>
+                								<h5 class="modal-title" id="exampleModalLongTitle">Add Material</h5>
                 								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 									<span aria-hidden="true">&times;</span>
                 								</button>
@@ -157,7 +157,7 @@ $result = mysqli_query($conn, $sql);
                                     </div>
 
                                 </div>
-                              <div class="apply_btn" align="center"><button class="btn btn-outline-info" type="submit" name="submitApp" data-target="#pop<?php echo $row['MATERIAL_ID'];?>"> Submit</button></div>
+                              <div class="apply_btn" align="center"><button class="btn btn-outline-info" type="submit" name="sub" data-target="#pop<?php echo $row['MATERIAL_ID'];?>"> Submit</button></div>
                 						</div>
                 					</div>
                 				</div>
@@ -172,7 +172,7 @@ $result = mysqli_query($conn, $sql);
           </div>
         </div>
       </div>
-      </form>
+
       </div>
     </div>
 

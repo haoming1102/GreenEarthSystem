@@ -119,25 +119,17 @@
       $conn->query($sql5);
       $conn->query($sql6);
       // $conn->query($sql9);
-      
+
       $alert = '<div class="alert alert-success alert-dismissible">
     	<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-    	<strong> Update Submission Succesfully !! </strong></div>';
+    	<strong> Record New Submission Succesfully !! </strong></div>';
     	$_SESSION['alert'] = $alert;
     	echo "<script type='text/javascript'>
     	window.location = 'recordApp.php'; </script>";
 
 
 
-      // echo $Mat_id . "<br>";
-      // echo $mat_point . "<br>";
-      // echo $cm_id . "<br>";
-      // echo $award;
 
-
-      echo $recycler_name . "<br>";
-      echo $Mat_id . "<br>";
-      echo $cm_id . "<br>";
     }
 
 
