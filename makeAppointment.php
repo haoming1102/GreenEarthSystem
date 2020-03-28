@@ -20,7 +20,6 @@ $username = $_SESSION['username'];
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<!-- Main CSS -->
 	<link rel="stylesheet" href="assets/css/materialList.css" type="text/css" media="screen">
-
 </head>
 <body>
 	<!--top section-->
@@ -187,7 +186,7 @@ $username = $_SESSION['username'];
 								<div class="form-group row">
 									<label for="Proposed Date" class="col-sm-5 col-form-label">Propesed Date</label>
 									<div class="col-sm-7">
-										<input type="date" class="form-control" name="proposedDate" required><br>
+										<input type="date" class="form-control" name="proposedDate" min="<?= date('Y-m-d'); ?>" required><br>
 										<div class="invalid-feedback">Please enter your proposed date.</div>
 									</div>
 
@@ -247,7 +246,7 @@ $username = $_SESSION['username'];
 		  </div>
 		</div>
 	</div>
-
+	
 	<script type="text/javascript" src="assets/javascript/manageMaterial.js"></script>
 	<!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
